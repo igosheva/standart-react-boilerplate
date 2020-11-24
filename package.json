@@ -1,0 +1,93 @@
+{
+  "name": "standart-react-boilerplate",
+  "version": "1.0.0",
+  "description": "React boilerplate for any projects",
+  "repository": "https://github.com/igosheva/standart-react-boilerplate.git",
+  "main": "index.js",
+  "author": "Nastya Igosheva",
+  "license": "MIT",
+  "scripts": {
+    "start": "env NODE_ENV=development webpack serve --config webpack.config.js",
+    "build": "env NODE_ENV=production webpack --config webpack.config.js",
+    "style:check": "stylelint check --config stylelint.js --aei .pcss --di src",
+    "style:fix": "stylelint check --config stylelint.js --aei .pcss --di src --fix",
+    "eslint": "eslint src",
+    "eslint:fix": "eslint src --fix",
+    "prettier": "pretty-quick"
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "npm run prettier --config .prettierrc --write",
+      "eslint ./src",
+      "git add --all"
+    ],
+    "*.?(p)css": [
+      "npm run prettier --config .prettierrc --write",
+      "npm run style:fix",
+      "git add --all"
+    ]
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "hookrouter": "^1.2.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
+    "@types/classnames": "^2.2.11",
+    "@types/hookrouter": "^2.2.3",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "css-loader": "^5.0.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "postcss-browser-reporter": "^0.6.0",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-preset-env": "^5.3.0",
+    "postcss-reporter": "^6.0.1",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-property-sort-order-smacss": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-value-no-unknown-custom-properties": "^3.0.0",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
